@@ -2,7 +2,7 @@
 
 PollStream is a full-stack real-time voting application built as a part of a coding assessment. It allows hosts to create and manage polls, while anyone with a shareable link can vote and watch results update instantly.
 
-## 🚀 Features
+##  Features
 
 - **Poll Creation**: Hosts can create polls with a question and at least 2 options.
 - **Real-Time Results**: Voting results update in real-time for all connected clients using **Socket.io**.
@@ -10,7 +10,7 @@ PollStream is a full-stack real-time voting application built as a part of a cod
 - **Host Dashboard**: A secure area for hosts to manage their polls, view results, and share links.
 - **Fairness & Anti-Abuse**: Multi-layered mechanisms to prevent duplicate voting.
 
-## 🛡️ Fairness / Anti-Abuse Mechanisms
+##  Fairness / Anti-Abuse Mechanisms
 
 To ensure data integrity and prevent abusive voting, PollStream implements two primary controls:
 
@@ -27,14 +27,14 @@ To ensure data integrity and prevent abusive voting, PollStream implements two p
 - Users can bypass these controls by using a VPN or clearing their browser's local storage.
 - Users on public Wi-Fi (e.g., a university) might be limited if the IP address is shared.
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 - **Frontend**: Next.js 14 (App Router), React, Framer Motion, Lucide Icons.
 - **Backend**: Node.js, Express, Socket.io, MongoDB (Mongoose).
 - **Real-Time**: WebSockets via Socket.io for bi-directional communication.
 - **Authentication**: JWT (JSON Web Tokens) for host security.
 
-## 🏁 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js (v18+)
@@ -52,10 +52,10 @@ To ensure data integrity and prevent abusive voting, PollStream implements two p
 3. Run `npm install`.
 4. Run `npm run dev`.
 
-## 📈 Success Criteria Met
-1. ✅ **Poll Creation**: Create polls with min 2 options and get shareable links.
-2. ✅ **Join by Link**: Public access to polls via `poll/[id]` route.
-3. ✅ **Real-Time Results**: Dynamic updates using Socket.io emitters.
-4. ✅ **Fairness**: IP tracking + LocalStorage VoterID implemented.
-5. ✅ **Persistence**: All data stored in MongoDB.
-6. ✅ **Deployment Ready**: Standardised environment configuration.
+##  Success Criteria Met
+1.  **Poll Creation**: Create polls with min 2 options and get shareable links.
+2.  **Join by Link**: Public access to polls via `poll/[id]` route.
+3.  **Real-Time Results**: Dynamic updates using Socket.io emitters.
+4.  **Fairness**: IP tracking + LocalStorage VoterID implemented.
+5.  **Persistence**: All data stored in MongoDB.
+6.  **Deployment Ready**: Standardised environment configuration.

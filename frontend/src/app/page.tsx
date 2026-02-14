@@ -21,19 +21,19 @@ export default function Home() {
 
       <div className="grid grid-cols-3" style={{ marginTop: '80px', gap: '40px' }}>
         <div className="card">
-          <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '12px' }}>✨ Real-Time</h3>
+          <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '12px' }}> Real-Time</h3>
           <p style={{ color: '#6b7280', fontSize: '15px' }}>
             Results update instantly for all viewers without refreshing.
           </p>
         </div>
         <div className="card">
-          <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '12px' }}>🔒 Fair Voting</h3>
+          <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '12px' }}> Fair Voting</h3>
           <p style={{ color: '#6b7280', fontSize: '15px' }}>
             IP tracking and device fingerprinting prevent duplicate votes.
           </p>
         </div>
         <div className="card">
-          <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '12px' }}>🔗 Easy Sharing</h3>
+          <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '12px' }}> Easy Sharing</h3>
           <p style={{ color: '#6b7280', fontSize: '15px' }}>
             Get a unique link for each poll to share anywhere.
           </p>
