@@ -15,13 +15,30 @@ export default function PollPage({ params }: { params: Promise<{ id: string }> }
     useEffect(() => {
         fetchPoll();
 
+        // Socket connection event listeners
+        socket.on('connect', () => {
+            console.log('Socket connected:', socket.id);
+        });
+
+        socket.on('disconnect', () => {
+            console.log('Socket disconnected');
+        });
+
+        socket.on('connect_error', (error) => {
+            console.error(' Socket connection error:', error);
+        });
+
         const eventName = `pollUpdate:${pollId}`;
         socket.on(eventName, (updatedPoll) => {
+            console.log(' Real-time poll update received:', updatedPoll);
             setPoll(updatedPoll);
         });
 
         return () => {
             socket.off(eventName);
+            socket.off('connect');
+            socket.off('disconnect');
+            socket.off('connect_error');
         };
     }, [pollId]);
 
@@ -46,12 +63,25 @@ export default function PollPage({ params }: { params: Promise<{ id: string }> }
 
         try {
             const voterId = getVoterId();
-            await api.post(`/api/public/poll/${pollId}/vote`, {
+            console.log('🗳️ Voting with:', { pollId, optionId: selectedOption, voterId });
+
+            const response = await api.post(`/api/public/poll/${pollId}/vote`, {
                 optionId: selectedOption,
                 voterId: voterId
             });
+
+            console.log('✅ Vote successful:', response.data);
+
+            // Update the poll state immediately with the response
+            if (response.data.success && response.data.poll) {
+                setPoll(response.data.poll);
+            }
+
             setVoted(true);
+            setError(""); // Clear any previous errors
         } catch (err: any) {
+            console.error('❌ Vote failed:', err);
+            console.error('Error response:', err.response?.data);
             setError(err.response?.data?.error || "Failed to vote");
         }
     };

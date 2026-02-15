@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { io } from 'socket.io-client';
 
-const API_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:4002';
+const API_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+
+console.log(' API Configuration:', { API_URL });
 
 export const api = axios.create({
     baseURL: API_URL,
@@ -18,7 +20,13 @@ api.interceptors.request.use((config) => {
     return config;
 });
 
-export const socket = io(API_URL);
+export const socket = io(API_URL, {
+    reconnection: true,
+    reconnectionDelay: 1000,
+    reconnectionAttempts: 5
+});
+
+console.log(' Socket initialized with URL:', API_URL);
 
 // Helper for voterId (Fairness mechanism)
 export const getVoterId = () => {
