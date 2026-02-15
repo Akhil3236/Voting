@@ -52,9 +52,8 @@ The app must include **at least two mechanisms** that reduce repeat/abusive voti
 - **Implementation**: MongoDB database with Mongoose ODM.
 
 ### 6. Deployment
-- ~~Share a publicly accessible URL where the app can be used.~~
-- **Status**: Application runs locally. Instructions provided for deployment.
-- **Live Demo**: `https://vote.trackur.org`
+- Share a publicly accessible URL where the app can be used.
+- **Live Demo**: `https://vote.trackur.org` ✅
 
 ---
 
