@@ -141,19 +141,46 @@ export default function Dashboard() {
                             <div className="form-group">
                                 <label className="form-label">Options</label>
                                 {options.map((opt, i) => (
-                                    <input
-                                        key={i}
-                                        className="form-input"
-                                        placeholder={`Option ${i + 1}`}
-                                        value={opt}
-                                        onChange={(e) => {
-                                            const newOpts = [...options];
-                                            newOpts[i] = e.target.value;
-                                            setOptions(newOpts);
-                                        }}
-                                        style={{ marginBottom: '8px' }}
-                                        required
-                                    />
+                                    <div key={i} style={{ display: 'flex', gap: '8px', marginBottom: '8px' }}>
+                                        <input
+                                            className="form-input"
+                                            placeholder={`Option ${i + 1}`}
+                                            value={opt}
+                                            onChange={(e) => {
+                                                const newOpts = [...options];
+                                                newOpts[i] = e.target.value;
+                                                setOptions(newOpts);
+                                            }}
+                                            style={{ flex: 1 }}
+                                            required
+                                        />
+                                        {options.length > 2 && (
+                                            <button
+                                                type="button"
+                                                onClick={() => {
+                                                    const newOpts = options.filter((_, index) => index !== i);
+                                                    setOptions(newOpts);
+                                                }}
+                                                onMouseOver={(e) => e.currentTarget.style.background = '#dc2626'}
+                                                onMouseOut={(e) => e.currentTarget.style.background = '#ef4444'}
+                                                style={{
+                                                    background: '#ef4444',
+                                                    color: 'white',
+                                                    border: 'none',
+                                                    borderRadius: '6px',
+                                                    padding: '8px 12px',
+                                                    cursor: 'pointer',
+                                                    fontSize: '18px',
+                                                    fontWeight: 'bold',
+                                                    minWidth: '40px',
+                                                    transition: 'all 0.2s'
+                                                }}
+                                                title="Delete this option"
+                                            >
+                                                ×
+                                            </button>
+                                        )}
+                                    </div>
                                 ))}
                                 <button
                                     type="button"
