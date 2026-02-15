@@ -120,14 +120,14 @@ export const vote = async (req, res) => {
             return res.status(404).json({ success: false, error: "Poll not found." });
         }
 
-        // Fairness check 1: Check if IP has already voted
-        const hasVotedIP = poll.voters.some(v => v.ip === ip);
-        // Fairness check 2: Check if voterId (from localStorage) has already voted
         const hasVotedId = poll.voters.some(v => v.deviceId === voterId);
 
-        if (hasVotedIP || hasVotedId) {
+        if (hasVotedId) {
             return res.status(403).json({ success: false, error: "You have already voted in this poll." });
         }
+
+        // Log for debugging
+        console.log(` New vote received - Poll: ${pollId}, Option: ${optionId}, VoterId: ${voterId}, IP: ${ip}`);
 
         // Find the option and increment votes
         const option = poll.options.id(optionId);
