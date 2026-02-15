@@ -274,14 +274,14 @@ socket.on(`pollUpdate:${pollId}`, (data) => {
 | 3. Real-Time Results | ✅ Complete | Socket.io bidirectional events, instant updates for all viewers |
 | 4. Fairness/Anti-Abuse | ✅ Complete | Device fingerprinting via localStorage voterId |
 | 5. Persistence | ✅ Complete | MongoDB with Mongoose, all data persisted |
-| 6. Deployment | ⚠️ Live Demo | Runs on localhost, network accessible, deployment-ready |
+| 6. Deployment | ✅ Complete | Live at https://vote.trackur.org, publicly accessible |
 
 ---
 
 ##  Testing the Application
 
 ### Test Scenario 1: Create and Share Poll
-1. Navigate to `http://localhhttps://vote.trackur.orgost:3000`
+1. Navigate to `https://vote.trackur.org`
 2. Click "Sign Up" and create a host account
 3. Login with credentials
 4. In Dashboard, click "Create Poll"
