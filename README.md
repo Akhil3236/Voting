@@ -2,6 +2,8 @@
 
 *Candidate Submission*
 
+
+- **Live Demo**: `https://vote.trackur.org` ✅
 ---
 
 ##  Objective
